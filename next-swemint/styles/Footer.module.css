@@ -1,0 +1,36 @@
+.footer-container {
+    font-size: var(--footer-font-size);
+    height: 40px;
+    text-align: center;
+    letter-spacing: .09rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 200;
+    display: flex;
+}
+
+.link {
+    color: var(--primary-font-color);
+    text-decoration: none;
+}
+
+@media screen and (min-width: 682px) {
+  .footer-container .link {
+    font-size: var(--footer-font-size-md);
+    letter-spacing: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 845px) {
+  .footer-container .link {
+    letter-spacing: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 1022px) {
+  .footer-container .link {
+    letter-spacing: 0.8rem;  
+  }
+}

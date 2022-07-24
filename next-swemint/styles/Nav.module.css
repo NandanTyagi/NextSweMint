@@ -1,0 +1,33 @@
+.nav-footer {
+  min-width: 320px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+}
+
+.link.blue {
+  color: #1e90ff;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 682px) {
+  .nav-footer .link {
+    font-size: var(--footer-font-size-md);
+    letter-spacing: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 845px) {
+  .nav-footer .link {
+    letter-spacing: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 1022px) {
+  .nav-footer .link {
+    letter-spacing: 0.8rem;
+  }
+}

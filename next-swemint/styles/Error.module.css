@@ -1,0 +1,11 @@
+.error {
+    color: red;
+    visibility: hidden;
+    font-size: .6rem;
+}
+
+@media screen and (min-width: 682px) {
+   .error {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "iknu";
+  src: url("../public/fonts/iknu.normal.ttf");
+}
+
+.text-container {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+  display: flex;
+}
+
+.title {
+  font-family: 'iknu';
+  font-size: var(--title-font-size);
+  font-weight: 300;
+}
+
+.preamble {
+    text-align: center;
+    font-size: var(--preamble-font-size);
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+@media screen and (min-width: 682px) {
+  .title {
+    font-size: 14rem;
+  }
+  .preamble {
+    max-width: 110ch;
+  }
+}
