@@ -1,0 +1,22 @@
+.overlay-container {
+    opacity: .4;
+    z-index: -1;
+    background: #000;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.site-container {
+    height: fit-content;
+    min-height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 0.5rem;
+    display: flex;
+    position: relative;
+}

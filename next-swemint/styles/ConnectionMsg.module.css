@@ -1,0 +1,8 @@
+.msg {
+    /* visibility: hidden; */
+    text-transform: uppercase;
+    font-size: .8rem;
+    position: absolute;
+    top: 8px;
+    right: 24px;
+}
