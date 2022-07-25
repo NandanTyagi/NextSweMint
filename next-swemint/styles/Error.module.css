@@ -1,11 +1,32 @@
 .error {
-    color: red;
-    visibility: hidden;
-    font-size: .6rem;
+  color: red;
+  position: relative;
+  border-radius: 5px;
+  padding: 0.1rem;
+  visibility: hidden;
+}
+
+/* .error-overlay {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: black;
+  z-index: -1;
+  opacity: 0.6;
+  visibility: hidden;
+} */
+
+.error-span {
+  opacity: 1;
+  color: red;
+  font-size: 0.6rem;
+  visibility: hidden;
 }
 
 @media screen and (min-width: 682px) {
-   .error {
+  .error {
     font-size: 0.8rem;
   }
 }

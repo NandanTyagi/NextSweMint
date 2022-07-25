@@ -9,10 +9,6 @@
     font-weight: 100;
 }
 
-.loading {
-  width: 60px;
-}
-
 #countdown {
     flex-direction: row;
 }

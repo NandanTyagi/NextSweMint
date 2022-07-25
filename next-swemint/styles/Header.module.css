@@ -16,6 +16,7 @@
   font-family: 'iknu';
   font-size: var(--title-font-size);
   font-weight: 300;
+  margin-bottom: 1rem;
 }
 
 .preamble {
@@ -23,6 +24,12 @@
     font-size: var(--preamble-font-size);
     letter-spacing: 1px;
     line-height: 1.2;
+  }
+  
+  @media screen and (max-width: 375px) {
+    .preamble {
+    line-height: 1;
+  }
 }
 
 @media screen and (min-width: 682px) {
