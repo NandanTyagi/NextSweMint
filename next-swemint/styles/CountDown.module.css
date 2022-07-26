@@ -16,6 +16,7 @@
 .countdown-container {
     gap: 0.1rem;
     display: flex;
+    height:fit-content;
 }
 
 .glow {

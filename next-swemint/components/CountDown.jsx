@@ -11,27 +11,26 @@ const CountDown = () => {
     const [sec, setSec] = useState('08');
 
 
-    useEffect(()=>{
+    useEffect(() => {
         setTimeout(() => {
             setLoading(true)
-          }, 1000);
-    },[])
+        }, 1000);
+    }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         setInterval(() => {
-            const deadLine = countDownTo('2022','August','20', '18:00:00' )
+            const deadLine = countDownTo('2022', 'August', '20', '18:00:00')
             setDays(deadLine.d)
             setHrs(deadLine.h)
             setMin(deadLine.m)
             setSec(deadLine.s)
-          }, 1000);
-    },[sec])
+        }, 1000);
+    }, [sec])
 
     return (
         <article className={styles["countdown-article"]}>
             <h3 className={styles["countdown-title"]}>TIME REMAINING</h3>
-            <Loading />
-            {loading && <div className={styles["countdown-container"]} id="countdown">
+            {loading ? <div className={styles["countdown-container"]} id="countdown">
                 <div className={[styles.glow, styles.time].join(" ")}>
                     <h2 className={styles["digit"]} id="days">{days}:</h2> <small className={styles["small"]}>days</small>
                 </div> <div className={[styles.glow, styles.time].join(" ")}>
@@ -43,7 +42,8 @@ const CountDown = () => {
                 <div className={[styles.glow, styles.time].join(" ")}>
                     <h2 className={styles["digit"]} id="seconds">{sec}</h2> <small className={styles["small"]}>sec</small>
                 </div>
-            </div>}
+
+            </div> : <div className={styles["countdown-container"]} id="countdown"><Loading /></div>}
         </article>
     );
 }

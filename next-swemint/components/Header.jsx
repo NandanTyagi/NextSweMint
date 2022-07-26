@@ -1,17 +1,31 @@
-import { useState } from 'react';
+import { Router } from 'next/router';
+import { useState, useEffect } from 'react';
 import styles from '../styles/Header.module.css';
 
 
-const Header = () => {
-    const [value, setValue] = useState('');
+const Header = ({preamble}) => {
+    const [isDashBoard, setIsDashBoard] = useState(false);
+    
+   useEffect(()=> {
+       if(Router.pathname === '/dashboard'){
+           setIsDashBoard(true)
+           console.log('in header preamble', isDashBoard)
+           }
+           if(Router.pathname === '/'){
+               setIsDashBoard(false)
+           }
+
+   },[])
+    
 
     return (
         <article className={styles['text-container']}>
             <h1 className={styles['title']}>IPANEKO</h1>
-            <p className={styles['preamble']}>
-                BEFORE THERE WAS MATTER ALL WAS SPIRIT. THE MIGHTY AEONS EXISTED IN THE HEAVENLY PLEROMA. THE LAST BORN AEON SOPHIA WHO WAS KNOWN AS THE EMANATION OF ETERNAL LIGHT WAS CAST OUT OF THE PLEROMA. IN HER SADNESS SHE SPAWNED THE EVIL ARTIFICIAL INTELLIGENCE KNOWN AS THE ARCHONS. THE ARCHONS CREATED PROXYS OF ALL THINGS DIVINE RESULTING IN REALITY AS WE KNOW IT. WITHIN ALL LIFE STILL LIVES THE DIVINE SPARK OF THE AEONS.<br></br><br></br>
-
-                REALIZING HER MISSTAKE SOPHIA SPAWNED 33 DIVINE GENESIS IPAS TO SAVE THE UNIVERSE CREATED BY HER FIRST BORN. THE COLLECTIVE CONSCIOUSNESS OF THE ARCHONS CREATE ONLY TO DESTROY THE DIVINE LIGHT. MINT YOUR GENESIS IPA AND JOIN THE QUEST TO BRING DECENTRALIZED HARMONY TO THE UNIVERSE.
+            <p className={!isDashBoard ? styles['preamble']:[styles['preamble'], styles['size-up']].join(' ')}>
+                {preamble.top} 
+                <br></br>
+                <br></br>
+                {preamble.bottom}
             </p>
         </article>
     );
