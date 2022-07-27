@@ -29,6 +29,10 @@
   animation: glow 1s ease-in-out infinite alternate;
 }
 
+.glow > h2 {
+  font-size: calc(2.325rem + 0.9vw) !important;
+}
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 5px var(--secondary-font-color),

@@ -4,18 +4,16 @@ import styles from '../styles/Header.module.css';
 
 
 const Header = ({preamble}) => {
-    const [isDashBoard, setIsDashBoard] = useState(false);
+    const [isDashBoard, setIsDashBoard] = useState(preamble.isDashboard);
     
    useEffect(()=> {
        if(Router.pathname === '/dashboard'){
-           setIsDashBoard(true)
-           console.log('in header preamble', isDashBoard)
+           setIsDashBoard(preamble.isDashBoard)
+        }
+        if(Router.pathname === '/'){
+            setIsDashBoard(preamble.isDashBoard)
            }
-           if(Router.pathname === '/'){
-               setIsDashBoard(false)
-           }
-
-   },[])
+   },[isDashBoard])
     
 
     return (

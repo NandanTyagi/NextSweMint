@@ -5,6 +5,7 @@
   position: relative;
   min-width: calc(100% - 2rem);
   color: white;
+  border-radius: 10px;
 }
 
 .card-body {
@@ -16,6 +17,10 @@
 .card-image {
   position: relative;
   z-index:-1;
+}
+
+.card-img-top {
+  border-radius:10px;
 }
 
 .card-image__overlay {
@@ -37,7 +42,7 @@
   left: 0;
   bottom: 0;
   background: black;
-  opacity: 0.5;
+  opacity: 0.9;
   transition: opacity 0.5s ease;
   z-index: -1;
 }
@@ -52,6 +57,27 @@
   opacity: 0.05;
   transition: opacity 0.5s ease;
   z-index: 1;
+}
+
+.card-image > h5 {
+  position: absolute;
+  z-index: 2;
+  top:1rem;
+  left: 1rem;
+  opacity:0;
+}
+
+.card-image > p {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left:1rem;
+  opacity:0;
+}
+
+.card:hover .card-image > h5, .card:hover .card-image > p {
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .btn-container {

@@ -1,26 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../styles/NftCard.module.css';
 
-export const NftCard = () => {
-    const [value, setValue] = useState('');
+export const NftCard = ({imageUrl,  name, description, tokenId}) => {
+    const [image, setImage] = useState(imageUrl);
+    const [nftName, setNftName] = useState(name);
+    const [nftDescription, setNftDescription] = useState(description);
+    const [id, setId] = useState(tokenId);
+
+    useEffect(()=>{
+        console.log('in nft card', image)
+    },[image])
+
+
 
     return (
         <div className={styles["card"]}>
             <div className={styles["card-image"]}>
-            <div className={styles["card-image__overlay"]}></div>
-                <Image src="/img/ipas/ipa1.jpg" width={1024}
+                <div className={styles["card-image__overlay"]}></div>
+                <h5 className={styles["card-title"]}>{nftName}</h5>
+                <p className={styles["card-text"]}>Rarity - Perl</p>
+                <Image src={image} width={1024}
                     height={1024}
-                    layout="responsive" className={styles["card-img-top"]} alt="..." priority="true"/>
+                    layout="responsive" blurDataURL={image} className={styles["card-img-top"]} alt="..." priority="true" />
             </div>
             <div className={styles["card-body"]}>
                 <div className={styles["card-body__overlay"]}></div>
-                <h5 className={styles["card-title"]}>NFT Name</h5>
-                <p className={styles["card-text"]}>Description</p>
-                <p className={styles["card-text"]}>Token ID: 1</p>
+                <p className={styles["card-text"]}>{nftDescription}</p>
                 <p className={styles["card-text"]}>Tokensupply: 1</p>
-                <p className={styles["card-text"]}>Holders: 1</p>
-                <p className={styles["card-text"]}>Held by you: 1</p>
                 <div className={styles["btn-container"]}>
                     <a href="https://testnets.opensea.io/assets/rinkeby/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}/${
           nft.token_id

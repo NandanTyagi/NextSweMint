@@ -3,20 +3,17 @@ html,
 body {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-  background-image: url(../public/img/bg-1-mobile.png);
-  object-fit: cover;
-  height: 100%;
-  color: var(--primary-font-color);
-  min-height: 100%;
   overflow-x: hidden;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  min-height: 100%;
   font-family: roboto;
   position: relative;
+  background-color:#fff;
 }
 
 @font-face {
@@ -36,7 +33,7 @@ body {
   --footer-font-size: 0.5rem;
   --footer-font-size-md: 0.6rem;
   --button-font-size: 1rem;
-  --counter-font-size: 2rem;
+  --counter-font-size: 0rem;
   --description-font-size: 0.8rem;
   --font: "roboto" sanserif;
   --font-iknu: "iknu" sanserif;
@@ -50,11 +47,38 @@ article {
     align-items: center;
     padding-bottom: 1rem;
     display: flex;
+  }
+  
+  article:first-of-type {
+  padding-bottom: 0rem;
+
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.btn {
+  color:black;
+  background-color:white;
+  border-color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color border 1s ease;
+}
+
+.btn:hover {
+  color:white;
+  background-color:black;
+  border-color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color border 1s ease;
 }
 
 * {
@@ -74,7 +98,9 @@ a {
 }
 
 @media screen and (min-width: 682px) {
-  body {
-    background-image: url("/img/swemint-bg-1.jpg");
-  }
+
+}
+
+@media screen and (min-width: 1200px) {
+
 }
