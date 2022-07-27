@@ -1,22 +1,23 @@
 .countdown-article {
-    gap: 0.5rem;
-    display: flex;
+  gap: 0.5rem;
+  display: flex;
+  padding-bottom: 1.5rem;
 }
 
 .countdown-title {
-    color: var(--secondary-font-color);
-    font-size: 1rem;
-    font-weight: 100;
+  color: var(--secondary-font-color);
+  font-size: 1rem;
+  font-weight: 100;
 }
 
 #countdown {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .countdown-container {
-    gap: 0.1rem;
-    display: flex;
-    height:fit-content;
+  gap: 0.1rem;
+  display: flex;
+  height: fit-content;
 }
 
 .glow {
@@ -47,10 +48,10 @@
 }
 
 .digit {
-    min-width: 50px;
+  min-width: 50px;
 }
 
 .small {
-    font-size: var(--description-font-size);
-    letter-spacing: 2px;
+  font-size: var(--description-font-size);
+  letter-spacing: 2px;
 }

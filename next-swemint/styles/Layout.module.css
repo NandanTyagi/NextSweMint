@@ -34,4 +34,5 @@
     padding: 0;
     display: flex;
     position: relative;
+    gap: 2rem;
 }

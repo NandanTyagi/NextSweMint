@@ -1,6 +1,5 @@
 .card {
   background-color: transparent;
-  margin-bottom: 2rem;
   border: 1px solid white;
   position: relative;
   min-width: calc(100% - 2rem);
@@ -83,4 +82,10 @@
 .btn-container {
   display: flex;
   gap: 0.5rem;
+}
+
+@media screen and (max-width: 370px){
+  .card {
+    width: calc(100% - 1rem);
+  }
 }

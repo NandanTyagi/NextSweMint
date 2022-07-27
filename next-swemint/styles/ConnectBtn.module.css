@@ -22,7 +22,6 @@
   will-change: transform box-shadow;
   background: 0 0;
   border-radius: 0.25rem;
-  margin: 1.5rem 0 0.2rem;
   transition: all 0.2s;
   display: inline-block;
   transform: scale(1);
@@ -58,7 +57,5 @@
 }
 
 @media screen and (min-width: 682px) {
-  .btn {
-    margin-top: 1rem;
-  }
+
 }
