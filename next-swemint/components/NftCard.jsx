@@ -15,7 +15,7 @@ export const NftCard = ({imageUrl,  name, description, tokenId}) => {
 
 
     return (
-        <div className={styles["card"]}>
+        <div key={id} className={styles["card"]}>
             <div className={styles["card-image"]}>
                 <div className={styles["card-image__overlay"]}></div>
                 <h5 className={styles["card-title"]}>{nftName}</h5>
