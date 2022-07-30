@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import NextHead from '../components/NextHead'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export function Home() {
   return (
     <>
     <NextHead/>
@@ -12,3 +12,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;

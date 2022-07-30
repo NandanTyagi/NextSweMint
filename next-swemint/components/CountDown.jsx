@@ -3,7 +3,7 @@ import styles from '../styles/CountDown.module.css';
 import Loading from './Loading';
 import countDownTo from '../utils/countDownTo.js';
 
-const CountDown = () => {
+export const CountDown = () => {
     const [loading, setLoading] = useState(false);
     const [days, setDays] = useState('27');
     const [hrs, setHrs] = useState('15');

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ConnectBtn from './ConnectBtn';
 import CountDown from './CountDown';
 
-const Home = () => {
+export const Home = () => {
     const [value, setValue] = useState('');
 
     return (

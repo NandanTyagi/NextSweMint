@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const NextHead = () => {
+export const NextHead = () => {
     return (
         <Head>
             <title>Swemint.io | IPANEKO</title>

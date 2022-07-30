@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Nav from './Nav';
 import styles from '../styles/Footer.module.css';
 
-const Footer = () => {
+export const Footer = () => {
     const [value, setValue] = useState('');
 
     return (

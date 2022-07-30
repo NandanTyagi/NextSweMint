@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link'
 import styles from '../styles/Nav.module.css';
 
-const Nav = () => {
+export const Nav = () => {
     const [value, setValue] = useState('');
 
     return (

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMoralis } from "react-moralis";
 import styles from '../styles/Error.module.css';
 
-const Error = ({ error }) => {
+export const Error = ({ error }) => {
     const { hasAuthError } = useMoralis();
     const [isErrorMsg, setIsErrorMsg] = useState(null);
 

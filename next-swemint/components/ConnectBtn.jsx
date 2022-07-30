@@ -4,7 +4,7 @@ import styles from '../styles/ConnectBtn.module.css';
 import Error from './Error';
 
 
-const ConnectBtn = () => {
+export const ConnectBtn = () => {
     const { isAuthenticated, authenticate, hasAuthError, authError, logout } = useMoralis();
     const [value, setValue] = useState('');
 

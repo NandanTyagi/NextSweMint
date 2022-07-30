@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from '../styles/Header.module.css';
 
 
-const Header = ({preamble}) => {
+export const Header = ({preamble}) => {
     const [isDashBoard, setIsDashBoard] = useState(preamble.isDashboard);
     
    useEffect(()=> {

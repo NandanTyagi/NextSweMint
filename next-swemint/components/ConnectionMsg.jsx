@@ -3,7 +3,7 @@ import { useMoralis } from "react-moralis";
 import shortenAddress  from'../utils/shortenAddress';
 import styles from'../styles/ConnectionMsg.module.css';
 
-const ConnectionMsg = () => {
+export const ConnectionMsg = () => {
     const { isAuthenticated, user } = useMoralis();
     const [isDisconnected, setIsDisconnected] = useState(true);
     const [shortWalletAddr, setShortWalletAddr] = useState('');

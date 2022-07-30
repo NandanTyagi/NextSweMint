@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Loading.module.css';
 
-const Loading = () => {
+export const Loading = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{

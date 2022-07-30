@@ -9,18 +9,18 @@ export const NftCard = ({imageUrl,  name, description, tokenId}) => {
     const [id, setId] = useState(tokenId);
 
     useEffect(()=>{
-        console.log('in nft card', image)
+        console.log('in nft card', imageUrl)
     },[image])
 
 
 
     return (
-        <div key={id} className={styles["card"]}>
+        <div key={tokenId} className={styles["card"]}>
             <div className={styles["card-image"]}>
                 <div className={styles["card-image__overlay"]}></div>
                 <h5 className={styles["card-title"]}>{nftName}</h5>
                 <p className={styles["card-text"]}>Rarity - Perl</p>
-                <Image src={image} width={1024}
+                <Image src={imageUrl} width={1024}
                     height={1024}
                     layout="responsive" blurDataURL={image} className={styles["card-img-top"]} alt="..." priority="true" />
             </div>
