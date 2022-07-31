@@ -1,20 +1,33 @@
 .footer-container {
-    font-size: var(--footer-font-size);
-    height: 40px;
-    text-align: center;
-    letter-spacing: .09rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 200;
-    display: flex;
-    margin-bottom: 0.5rem;
+  font-size: var(--footer-font-size);
+  height: 40px;
+  text-align: center;
+  letter-spacing: 0.09rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 200;
+  display: flex;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index:0;
+  width:100%
 }
 
 .link {
-    color: var(--primary-font-color);
-    text-decoration: none;
+  color: var(--primary-font-color);
+  text-decoration: none;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent, black);
+  z-index:-1;
 }
 
 @media screen and (min-width: 682px) {
@@ -32,6 +45,6 @@
 
 @media screen and (min-width: 1022px) {
   .footer-container .link {
-    letter-spacing: 0.8rem;  
+    letter-spacing: 0.8rem;
   }
 }

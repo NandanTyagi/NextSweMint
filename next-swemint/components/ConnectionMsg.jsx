@@ -13,7 +13,7 @@ export const ConnectionMsg = () => {
         !isAuthenticated ? setTimeout(() => {
             setIsDisconnected(false)
         },5000):setIsDisconnected(true);
-    }, [isAuthenticated]);
+    }, [isDisconnected, isAuthenticated]);
     
     return (
         <>

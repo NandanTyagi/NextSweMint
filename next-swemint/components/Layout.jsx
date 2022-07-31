@@ -85,9 +85,10 @@ export const Layout = ({theNFTS}) => {
 
     useEffect(() => {
         setIsMdViewport(handelResize());
-        window.addEventListener('resize', () => handelResize())
+        console.log(isMdViewport)
+        window.addEventListener('resize', () => setIsMdViewport(handelResize()))
         return window.removeEventListener('resize', handelResize)
-    }, [])
+    }, [isMdViewport])
 
 
 

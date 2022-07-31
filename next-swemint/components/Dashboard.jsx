@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import NftCard from './NftCard';
+import {motion} from 'framer-motion';
 import styles from '../styles/Dashboard.module.css';
 import { isInitialized, useMoralis } from "react-moralis";
+
 
 
 const Dashboard = ({ NFTS }) => {
@@ -31,15 +33,37 @@ const Dashboard = ({ NFTS }) => {
   return (
     <div className={styles.dashboard}>
       {NFTS.map((nft,i) => {
-        console.log('gjhdalsöhgöldsgkhölsdf', typeof nft.metadata)
-        console.log('gjhdalsöhgöldsgkhölsdf', nft.metadata)
+        console.log('gjhdalsöhgöldsgkhölsdf type', typeof nft.metadata)
+        console.log('gjhdalsöhgöldsgkhölsdf metadata', nft.metadata)
+        console.log('gjhdalsöhgöldsgkhölsdf nft', nft)
         // nft.metadata = nft.metadata.substring(0,nft.metadata.length)
         // console.log('gjhdalsöhgöldsgkhölsdf', nft.metadata)
         // nft.metadata.splice(nft.metadata.length-1,1)
         // let string = JSON.stringify(nft.metadata)
         // nft.metadata = JSON.parse(string)
         // nft.metadata = JSON.parse(nft.metadata)
-       return <NftCard key={i} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.tokenId}/>
+       return <motion.div initial="hidden" animate="visible" variants={{
+        hidden: {
+          scale: 0,
+          opacity: 0
+        },
+        visible: {
+          scale: [0.1,0.2,0.3,0.4,0.5, 0.6,0.7,0.8,0.9, 1],
+          opacity: [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9, 1],
+          transition: {
+            delay: .5
+          }
+        }
+       }} 
+      //  whileHover={{
+      //   position: 'relative',
+      //   zIndex:1,
+      //   scale: [1, 1.4, 1.2],
+      //   transition:{
+      //     duration: .6
+      //   }
+      //  }}
+       ><NftCard key={i} nft={nft} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id}/></motion.div>
       })}
     </div>
     );

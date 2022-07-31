@@ -11,3 +11,10 @@
       top:16px;
     }
 }
+
+@media screen and (min-width: 1860px) {
+    .msg {
+      position:fixed;
+      top:16px;
+    }
+}

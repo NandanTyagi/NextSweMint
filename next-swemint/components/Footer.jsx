@@ -7,6 +7,7 @@ export const Footer = () => {
 
     return (
         <footer className={styles["footer-container"]}>
+            <div className={styles["overlay-container"]}></div>
             <a href="https://nandantyagi.com" className={styles["link"]}> ALL MATERIAL IS ARTIFICIAL | ALL INTELLIGENCE IS DIVINE </a>
             <Nav/>
         </footer>
