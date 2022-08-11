@@ -11,6 +11,7 @@ export const getPreamble = (page) => {
 
   const dashboardPreamble = "DASHBOARD";
   const mintPreamble = "MINT";
+  const litepaperPreamble = "LITEPAPER";
 
   if (page === "/") {
     preamble = homePreamble;
@@ -24,6 +25,11 @@ export const getPreamble = (page) => {
     return preamble;
   } else if (page === "/dashboard") {
     preamble.top = dashboardPreamble;
+    preamble.isMint = false;
+    preamble.isDashboard = true;
+    return preamble;
+  } else if (page === "/litepaper") {
+    preamble.top = litepaperPreamble;
     preamble.isMint = false;
     preamble.isDashboard = true;
     return preamble;

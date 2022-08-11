@@ -4,7 +4,7 @@ import formatNfts from "../utils/formatNfts";
 import NextHead from "../components/NextHead";
 
 export const getStaticProps = async () => {
-  let address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+  let address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS2;
   let chain = process.env.NEXT_PUBLIC_CHAIN;
   let api_key = process.env.NEXT_PUBLIC_API_KEY;
 

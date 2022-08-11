@@ -5,6 +5,7 @@
   min-width: calc(100% - 2rem);
   color: white;
   border-radius: 10px;
+  opacity:0;
 }
 
 .card-body {
@@ -35,6 +36,7 @@
 }
 
 .card-body__overlay {
+  border-radius: 0 0 10px 10px;
   position: absolute;
   top: 0;
   right: 0;
@@ -82,6 +84,36 @@
 .btn-container {
   display: flex;
   gap: 0.5rem;
+}
+
+.animateCard {
+  animation-duration: 3s;
+  animation-name: appear;
+  animation-fill-mode:forwards;
+}
+
+@keyframes appear{
+  0% {
+    opacity:0;
+    transform: translateY(-16px)
+  }
+  10% {
+    opacity:0.4;
+    transform: translateY(-12px)
+  }
+  20% {
+    opacity:0.6;
+    transform: translateY(-8px)
+  }
+  30% {
+    opacity:0.8;
+    transform: translateY(-4px)
+  }
+  100% {
+    opacity:1;
+  transform: translateY(0px)
+  }
+
 }
 
 @media screen and (max-width: 370px){

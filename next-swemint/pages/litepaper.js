@@ -4,7 +4,7 @@ import formatNfts from "../utils/formatNfts";
 import NextHead from "../components/NextHead";
 
 export const getStaticProps = async () => {
-  let address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS2;
+  let address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
   let chain = process.env.NEXT_PUBLIC_CHAIN;
   let api_key = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -17,27 +17,23 @@ export const getStaticProps = async () => {
     redirect: "follow",
   };
 
-  const nftsRes = await fetch(
+  const res = await fetch(
     `https://deep-index.moralis.io/api/v2/nft/${address}?chain=${chain}&format=decimal`,
     requestOptions
   );
 
-  const rawNfts = await nftsRes.json();
-  
-  console.log("RAW NFTS", rawNfts);
-  const ownersRes = await fetch(
+  const data = await res.json();
+
+  const res1 = await fetch(
     `https://deep-index.moralis.io/api/v2/nft/${address}/owners?chain=${chain}&format=decimal`,
     requestOptions
-    );
-    const owners = await ownersRes.json();
-    console.log("RAW Owners", owners);
-    
-    const formatedNFTs = await formatNfts(rawNfts, owners);
-    
-    console.log("RAW FORMATTED",await formatedNFTs);
+  );
+  const data1 = await res1.json();
+
+  const formatedNFTs = await formatNfts(data, data1);
 
   return {
-    props: { theNFTS: formatedNFTs ? formatedNFTs:null },
+    props: { theNFTS: formatedNFTs }
   };
 };
 
@@ -48,7 +44,7 @@ export function Home({ theNFTS }) {
   }, []);
   return (
     <>
-      <NextHead title={"IPANEKO | DASHBOARD"} />
+      <NextHead title={'IPANEKO | LITEPAPER'}/>
       <Layout theNFTS={theNFTS} />
     </>
   );
