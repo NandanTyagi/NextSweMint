@@ -7,7 +7,7 @@ import contractABI from '../utils/contracts/contract';
 import { motion } from 'framer-motion';
 import { useMoralisWeb3Api, isInitialized, useMoralis } from "react-moralis";
 
-export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint }) => {
+export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, ticker, mintNFT }) => {
     const [image, setImage] = useState(imageUrl);
     const [nftName, setNftName] = useState(name);
     const [nftDescription, setNftDescription] = useState(description);
@@ -40,7 +40,7 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint }) =
             // await file2.saveIPFS()
             // const metadataURL = file2.ipfs()
             // interact with smart contract
-            const contract = new web3.eth.Contract(contractABI, process.env.NEXT_PUBLIC_CONTRACT_ADDRESS2)
+            const contract = new web3.eth.Contract(contractABI, process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
             contract.methods.mint(currentUserAccountRef.current, nft.token_id, 1)
             .send({ from: currentUserAccountRef.current })
             .on("reciept", (reciept) => alert('Min complete!', reciept))
@@ -87,7 +87,7 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint }) =
         if (mintRef !== undefined) {
             observer.observe(mintRef.current)
         }
-    }, [isVisible])
+    }, [isVisible, ticker])
 
     return (
         <>
@@ -115,9 +115,9 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint }) =
                                 height={1024}
                                 layout="responsive" blurDataURL={nft.image} className={styles["card-img-top"]} alt={nft.name} priority="true" /> */}
 
-                            <Image src={nft.metadata.image} width={1024}
+                            <Image src={image} width={1024}
                                 height={1024}
-                                layout="responsive" blurDataURL={nft.metadata.image} className={styles["card-img-top"]} alt={nft.metadata.name} priority="true" />
+                                layout="responsive" blurDataURL={image} className={styles["card-img-top"]} alt={nft.metadata.name} priority="true" />
                         </div>
                         <div className={styles["card-body"]}>
                             <div className={styles["card-body__overlay"]}></div>
@@ -166,7 +166,8 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint }) =
                         {/* <p className={styles["card-text"]}>Tokensupply: 1</p> */}
                         <div className={styles["btn-container"]}>
                             <a href={`https://testnets.opensea.io/assets/rinkeby/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}/${tokenId}`} target="_blank" rel="noreferrer" className="btn btn-primary">OpenSea</a>
-                            <a href={`/mint/?nftId=${nft.token_id}`} className="btn btn-primary">Mint</a>
+                            <a href={`/mint`} className="btn btn-primary">Mint</a>
+                            {/* <a href={`/mint/?nftId=${nft.token_id}`} className="btn btn-primary">Mint</a> */}
                             {/* <a href={`/mint/?nftId=${nft.tokenId}`} className="btn btn-primary">Mint</a> */}
 
                         </div>

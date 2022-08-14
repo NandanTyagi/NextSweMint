@@ -1,5 +1,6 @@
 .mint {
     width:100%;
+    border: 1px solid white;
 }
 
 @media screen and (min-width: 682px) {

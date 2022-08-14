@@ -4,7 +4,7 @@ import formatNfts from "../utils/formatNfts";
 import NextHead from "../components/NextHead";
 
 export const getStaticProps = async () => {
-  let address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS2;
+  let address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
   let chain = process.env.NEXT_PUBLIC_CHAIN;
   let api_key = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -31,6 +31,12 @@ export const getStaticProps = async () => {
   const data1 = await res1.json();
 
   const formatedNFTs = await formatNfts(data, data1);
+
+
+    
+
+
+
 
   return {
     props: { theNFTS: formatedNFTs }
