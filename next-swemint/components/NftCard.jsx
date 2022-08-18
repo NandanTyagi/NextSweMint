@@ -2,13 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Moralis from 'moralis';
 import Web3 from 'web3';
+// import { Moralis } from '@moralis/sdk';
+import { EvmChain } from '@moralisweb3/evm-utils';
 import styles from '../styles/NftCard.module.css';
 import contractABI from '../utils/contracts/contract';
 import { motion } from 'framer-motion';
 import { useMoralisWeb3Api, isInitialized, useMoralis } from "react-moralis";
+import Router from 'next/router';
 
 export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, ticker, mintNFT }) => {
-    const [image, setImage] = useState(imageUrl);
+    const [image, setImage] = useState(imageUrl ? imageUrl : '/img/sync-metadata.jpg');
     const [nftName, setNftName] = useState(name);
     const [nftDescription, setNftDescription] = useState(description);
     const [id, setId] = useState(tokenId);
@@ -42,8 +45,8 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
             // interact with smart contract
             const contract = new web3.eth.Contract(contractABI, process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
             contract.methods.mint(currentUserAccountRef.current, nft.token_id, 1)
-            .send({ from: currentUserAccountRef.current })
-            .on("reciept", (reciept) => alert('Min complete!', reciept))
+                .send({ from: currentUserAccountRef.current })
+                .on("reciept", (reciept) => alert('Mint complete!', nft.token_id, reciept))
             // const tokenId = res.events.Transfer.returnValue.tokenId
             // alert(`Mint complete of token id: ${tokenId}`)
         } catch (e) {
@@ -56,6 +59,23 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
         web3Ref.current = await enableWeb3()
         // console.log('WEB3', web3Ref.current.eth.getAccounts())
     }
+
+
+    async function syncMetadata() {
+        const options = { method: 'GET', headers: { Accept: 'application/json', 'X-API-Key': process.env.NEXT_PUBLIC_API_KEY } };
+
+        fetch(`https://deep-index.moralis.io/api/v2/nft/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}/${nft.token_id}/metadata/resync?chain=rinkeby&flag=uri&mode=async`, options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                alert(response.status, nft.token_id)
+                Router.push('/dashboard')
+            })
+            .catch(err => console.error(err));
+    }
+
+
+
 
     useEffect(() => {
         isAuthenticated ? currentUserAccountRef.current = user.get('ethAddress') : null
@@ -109,7 +129,7 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
                         <div className={styles["card-image"]}>
                             <div className={styles["card-image__overlay"]}></div>
                             <h5 className={styles["card-title"]}>{nft.metadata.name}</h5>
-                            <p className={styles["card-text"]}>Rarity: {nft.metadata.attributes.rarity}</p>
+                            <p className={styles["card-text"]}>Rarity: {nft.metadata ? nft.metadata.attributes.rarity : 'error'}</p>
                             {/* <p className={styles["card-text"]}>Rarity: Perl</p> */}
                             {/* <Image ref={mintRef} src={nft.image} width={1024}
                                 height={1024}
@@ -139,19 +159,20 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
                     <div className={styles["card-image"]}>
                         <div className={styles["card-image__overlay"]}></div>
                         <h5 className={styles["card-title"]}>{nftName}</h5>
-                        <p className={styles["card-text"]}>Rarity: {nft.metadata.attributes.rarity}</p>
+                        <p className={styles["card-text"]}>Rarity: {nft.metadata ? nft.metadata.attributes.rarity : 'error'}</p>
                         {/* <p className={styles["card-text"]}>Rarity: Perl</p> */}
                         {/* <Image src={nft.image} width={1024}
                             height={1024}
                             layout="responsive" blurDataURL={nft.image} className={styles["card-img-top"]} alt={nft.name} priority="true" /> */}
-                        <Image src={nft.metadata.image} width={1024}
+                        <Image src={nft.metadata ? nft.metadata.image : '/img/sync-metadata.jpg'} width={1024}
                             height={1024}
-                            layout="responsive" blurDataURL={nft.metadata.image} className={styles["card-img-top"]} alt={nft.metadata.name} priority="true" />
+                            layout="responsive" blurDataURL={nft.metadata ? nft.metadata.image : '/img/sync-metadata.jpg'} className={styles["card-img-top"]} alt={nft.metadata ? nft.metadata.name : 'error'} priority="true" />
                     </div>
                     <div className={styles["card-body"]}>
                         <div className={styles["card-body__overlay"]}></div>
-                        <p className={styles["card-text"]}>{nft.metadata.description}</p>
+                        <p className={styles["card-text"]}>{nft.metadata ? nft.metadata.description : 'error'}</p>
                         {/* <p className={styles["card-text"]}>{nft.description}</p> */}
+                        <p className={styles["card-text"]}>Token Id: {nft.token_id}</p>
                         <p className={styles["card-text"]}>Tokensupply: {nft.amount}</p>
                         {nft.owners.map(o => {
                             if (currentUserAccountRef.current !== undefined && o.owner.toUpperCase() === currentUserAccountRef.current.toUpperCase()) {
@@ -166,7 +187,8 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
                         {/* <p className={styles["card-text"]}>Tokensupply: 1</p> */}
                         <div className={styles["btn-container"]}>
                             <a href={`https://testnets.opensea.io/assets/rinkeby/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS}/${tokenId}`} target="_blank" rel="noreferrer" className="btn btn-primary">OpenSea</a>
-                            <a href={`/mint`} className="btn btn-primary">Mint</a>
+                            <button onClick={syncMetadata} className="btn btn-primary">Sync</button>
+                            {/* <a href={`/mint`} className="btn btn-primary">Mint</a> */}
                             {/* <a href={`/mint/?nftId=${nft.token_id}`} className="btn btn-primary">Mint</a> */}
                             {/* <a href={`/mint/?nftId=${nft.tokenId}`} className="btn btn-primary">Mint</a> */}
 

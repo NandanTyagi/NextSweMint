@@ -1,6 +1,6 @@
 .card {
   background-color: transparent;
-  border: 1px solid white;
+  border: 3px solid white;
   position: relative;
   min-width: calc(100% - 2rem);
   color: white;
@@ -33,6 +33,7 @@
   z-index: 1;
   opacity: 0.3;
   transition: opacity 0.5s ease;
+  border-radius:10px;
 }
 
 .card-body__overlay {

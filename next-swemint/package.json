@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@moralisweb3/evm-utils": "^2.0.3",
     "@walletconnect/web3-provider": "^1.7.8",
     "bootstrap": "^5.2.0",
     "framer-motion": "^6.5.1",

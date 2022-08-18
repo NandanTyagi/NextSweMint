@@ -10,9 +10,9 @@ export const Nav = () => {
             <Link href="/litepaper">
             <a  className={[styles.blue, styles.link, styles.nav_footer__link].join(" ")}> LITEPAPER </a>
             </Link>
-            {/* <Link href="/mint">
+            <Link href="/mint">
             <a  className={[styles.blue, styles.link, styles.nav_footer__link].join(" ")}> MINT </a>
-            </Link> */}
+            </Link>
             <Link href="/dashboard">
             <a  className={[styles.blue, styles.link, styles.nav_footer__link].join(" ")}> DASHBOARD </a>
             </Link>

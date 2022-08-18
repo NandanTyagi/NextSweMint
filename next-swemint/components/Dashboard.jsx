@@ -66,7 +66,13 @@ const Dashboard = ({ NFTS }) => {
       //   }
       //  }}
        >
-        <NftCard key={i} nft={nft} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id}/></motion.div>
+      
+      {nft.metadata?<NftCard key={i} nft={nft} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id}/>:
+      <NftCard key={i} nft={nft} imageUrl={'https://zjaux8t7jfje.usemoralis.com/ipa3.jpg'} name={'Error'} description={'error'} tokenId={nft.token_id}/>}
+      
+      </motion.div>
+ 
+     
         {/* <NftCard key={i} nft={nft} imageUrl={nft.image} name={nft.name} description={nft.description} tokenId={nft.token_id}/></motion.div> */}
       })}
     </div>

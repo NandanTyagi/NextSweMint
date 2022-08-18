@@ -86,6 +86,7 @@ const Mint = ({ NFTS }) => {
             if (isMintable) {
                 console.log('Minted array', mintedImageIds)
                 console.log('NFT is mintable', isMintable, id)
+                handelMint(id)
                 
             } else {
                 console.log('NFT is not mintable....retrying', isMintable, id)
@@ -116,10 +117,11 @@ const Mint = ({ NFTS }) => {
             // await file2.saveIPFS()
             // const metadataURL = file2.ipfs()
             // interact with smart contract
-            const contract = new web3.eth.Contract(contractABI, process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
+            // const contract = new web3.eth.Contract(contractABI, process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
+            const contract = new web3.eth.Contract(contractABI, '0xf1286bb3adb371c4afc32292f0c09c9ce8a78752')
             contract.methods.mint(currentUserAccountRef.current, nftId, 1)
-                .send({ from: currentUserAccountRef.current })
-                .on("reciept", (reciept) => alert('Mint complete!', reciept))
+                .send({ from: currentUserAccountRef.current, value:33000000000000000 })
+                .on("receipt", (receipt) => alert('Mint complete!', receipt))
             // const tokenId = res.events.Transfer.returnValue.tokenId
             // alert(`Mint complete of token id: ${tokenId}`)
         } catch (e) {
@@ -199,7 +201,7 @@ const Mint = ({ NFTS }) => {
                  return <NftCard key={i} nft={nft} imageUrl={image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id} isMint={true} ticker={ticker} />
                 })} */}
                 {NFTS.map((nft, i) => {
-                    if (router.query.nftId === nft.token_id) return <NftCard key={i} nft={nft} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id} isMint={true} />
+                    if (router.query.nftId === nft.token_id) return <NftCard key={i} nft={nft} imageUrl={nft.metadata.image?nft.metadata.image:'https://zjaux8t7jfje.usemoralis.com/ipa3.jpg'} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id} isMint={true} />
                 })}
             </div>
             <ConnectBtn isMintBtn={true} mintNFT={mintNFT} />
