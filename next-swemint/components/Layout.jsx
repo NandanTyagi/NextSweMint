@@ -4,8 +4,8 @@ import ConnectionMsg from './ConnectionMsg';
 import Footer from './Footer';
 import Main from './Main';
 import styles from '../styles/Layout.module.css' ;
-// import bgImageDesktop from '../public/img/swemint-bg.jpg' ;
-// import bgImageMobile from '../public/img/bg-mobile.png';
+import bgImageDesktop from '../public/img/swemint-bg.jpg' ;
+import bgImageMobile from '../public/img/bg-mobile.png';
 import handelResize from "../utils/handelResize";
 import { useMoralisWeb3Api, isInitialized, useMoralis } from "react-moralis";
 
@@ -96,8 +96,8 @@ export const Layout = ({theNFTS}) => {
         <>
             <div className={styles["bg-container"]}>
                 <div className={styles["overlay-container"]}></div>
-                {/* <Image src={isMdViewport ? bgImageDesktop : bgImageMobile}
-                    layout="fill" objectFit='cover' className={styles["bg-image"]} alt="..." priority="true" /> */}
+                <Image src={isMdViewport ? bgImageDesktop : bgImageMobile}
+                    layout="fill" objectFit='cover' className={styles["bg-image"]} alt="..." priority="true" />
             </div>
             <div className={styles["site-container"]}>
                 <ConnectionMsg />
