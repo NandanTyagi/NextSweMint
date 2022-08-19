@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iknu";
-  src: url("../public/fonts/iknu.normal.ttf");
+  src: url("../src/public/fonts/iknu.normal.ttf");
 }
 
 .text-container {

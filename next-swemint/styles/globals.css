@@ -19,11 +19,11 @@ body {
 
 @font-face {
   font-family: "digital-7";
-  src: url("../public/fonts/digital-7.ttf");
+  src: url("../src/public/fonts/digital-7.ttf");
 }
 @font-face {
   font-family: "iknu";
-  src: url("../public/fonts/iknu.normal.ttf");
+  src: url("../src/public/fonts/iknu.normal.ttf");
 }
 
 :root {
