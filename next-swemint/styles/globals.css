@@ -19,11 +19,11 @@ body {
 
 @font-face {
   font-family: "digital-7";
-  src: url("../src/public/fonts/digital-7.ttf");
+  src: url("../public/fonts/digital-7.ttf");
 }
 @font-face {
   font-family: "iknu";
-  src: url("../src/public/fonts/iknu.normal.ttf");
+  src: url("../public/fonts/iknu.normal.ttf");
 }
 
 :root {
@@ -42,16 +42,16 @@ body {
 }
 
 article {
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  
-  article:first-of-type {
-  padding-bottom: 0rem;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
+article:first-of-type {
+  padding-bottom: 0rem;
+  
 }
 
 a {
@@ -104,9 +104,9 @@ a:hover {
 }
 
 @media screen and (min-width: 682px) {
-
+  
 }
 
 @media screen and (min-width: 1200px) {
-
+  
 }

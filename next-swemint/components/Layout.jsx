@@ -96,8 +96,8 @@ export const Layout = ({theNFTS}) => {
         <>
             <div className={styles["bg-container"]}>
                 <div className={styles["overlay-container"]}></div>
-                <Image src="/img/swemint-bg.jpg"
-                    layout="fill" objectFit='cover' blurDataURL='/img/swemint-bg.jpg' className={styles["bg-image"]} alt="..." priority="true" />
+                {/* <Image src={"/swemintbg.jpg"}
+                    layout="fill" objectFit='cover' blurDataURL={'/swemintbg.jpg'} className={styles["bg-image"]} alt="..." priority="true" /> */}
                 {/* <Image src={isMdViewport ? bgImageDesktop : bgImageMobile}
                     layout="fill" objectFit='cover' className={styles["bg-image"]} alt="..." priority="true" /> */}
             </div>

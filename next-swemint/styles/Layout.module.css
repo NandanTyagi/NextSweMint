@@ -7,6 +7,8 @@
     bottom: 0;
     left: 0;
     right: 0;
+    background-image: url(../public/img/bg-mobile.png);
+    background-repeat: no-repeat;
 }
 
 .bg-image {
@@ -35,4 +37,10 @@
     display: flex;
     position: relative;
     gap: 2rem;
+}
+
+@media screen and (min-width: 682px) {
+    .bg-container {
+        background-image: url(../public/swemintbg.jpg);
+    }
 }
