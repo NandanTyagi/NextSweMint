@@ -9,7 +9,7 @@ const LitePaper = () => {
 
     return (
         <>
-            <div className={styles.litePaper}>
+            {/* <div className={styles.litePaper}>
                 <div ref={paperRef} className={styles.paperContainer}alt="LitePaper1" priority="true">
                     <Image  src="/img/litepaper-page-1.jpg" width={1593}
                         height={875}
@@ -35,7 +35,7 @@ const LitePaper = () => {
                         height={875}
                         layout="responsive" blurDataURL="/img/litepaper-page-5-team.jpg" className={styles.paper} alt="LitePaper5" />
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
