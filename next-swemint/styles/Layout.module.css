@@ -9,6 +9,8 @@
     right: 0;
     background-image: url(../public/img/bg-mobile.png);
     background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
 }
 
 .bg-image {
