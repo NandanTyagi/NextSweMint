@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
       >
         <Component {...pageProps} />
       </MoralisProvider>
-    </React.StrictMode>
+    </React.StrictMode> 
   );
 }
 export default MyApp;
