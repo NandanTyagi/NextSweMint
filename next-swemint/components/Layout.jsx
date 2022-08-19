@@ -4,7 +4,7 @@ import ConnectionMsg from './ConnectionMsg';
 import Footer from './Footer';
 import Main from './Main';
 import styles from '../styles/Layout.module.css';
-import bgImageDesktop from '../public/img/swemint-bg.jpg';
+import bgImageDesktop from '../public/img/swemint-bg.jpg' ;
 import bgImageMobile from '../public/img/bg-mobile.png';
 import handelResize from "../utils/handelResize";
 import { useMoralisWeb3Api, isInitialized, useMoralis } from "react-moralis";
