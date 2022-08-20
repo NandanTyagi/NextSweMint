@@ -13,7 +13,7 @@ export async function formatNfts(owners, nfts) {
             newOwnerObj.owner = nft.owner_of;
             newOwnerObj.amountOwned = nft.amount;
             newArr.push(newOwnerObj);
-            console.log("ooooooooooooooooo", nft, owner);
+            // console.log("ooooooooooooooooo", nft, owner);
         }
     });
 });
@@ -33,7 +33,7 @@ nftArr.forEach((nft) => {
     });
     nft.amount = nft.amount.toString();
   });
-  console.log('============ooooooooooooo',nftArr)
+  // console.log('============ooooooooooooo',nftArr)
 
   // Remove duplicate nft ids
   let formatedNfts
@@ -44,7 +44,7 @@ nftArr.forEach((nft) => {
     formatedNfts.sort((a, b) => {
       return a.token_id - b.token_id;
     });
-    console.log("============ooooo======?????oooooooo", formatedNfts);
+    // console.log("============ooooo======?????oooooooo", formatedNfts);
     
     return formatedNfts;
   }else {
