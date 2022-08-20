@@ -24,7 +24,7 @@ const Dashboard = ({ NFTS }) => {
 
     setNfts(NFTS)
 
-    console.log('In dashbord', nfts)
+    // console.log('In dashbord', nfts)
     console.log('In dashbord', NFTS)
     
     // parseMetadata(nfts)
