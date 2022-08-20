@@ -77,7 +77,7 @@ export const getStaticProps = async () => {
 
 export function Home({ theNFTS }) {
   useEffect(() => {
-    console.log("GLJGGLKGLKJGLGHB NFTS", theNFTS);
+    console.log("In dasshboard page NFTS", theNFTS);
     // console.log("GLJGGLKGLKJGLGHB OWNERS", theOwners);
   }, []);
   return (
