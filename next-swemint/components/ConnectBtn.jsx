@@ -23,6 +23,9 @@ export const ConnectBtn = ({ isMintBtn, mintNFT }) => {
                         <button onClick={() => authenticate({ signingMessage: "Authorize connecting to Swemint.io" })} className={styles["btn"]} id="btn">CONNECT
                             <div className={styles["btn-overlay"]}></div>
                         </button>}
+                        {/* <button onClick={() => authenticate({ signingMessage: "Authorize connecting to Swemint.io" })} className={styles["btn"]} id="btn">CONNECT
+                            <div className={styles["btn-overlay"]}></div>
+                        </button>} */}
                     <div className={styles["error"]} id="error">
                         <Error error={authError} />
                     </div>
