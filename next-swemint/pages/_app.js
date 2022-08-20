@@ -33,7 +33,8 @@ function MyApp({ Component, pageProps }) {
     <React.StrictMode>
       <MoralisProvider
         appId={process.env.NEXT_PUBLIC_APP_ID}
-        serverUrl="https://zjaux8t7jfje.usemoralis.com:2053/server"
+        serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}
+        api_key={process.env.NEXT_PUBLIC_API_KEY}
       >
         <Component {...pageProps} />
       </MoralisProvider>
