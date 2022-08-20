@@ -11,7 +11,7 @@ import { useMoralisWeb3Api, isInitialized, useMoralis } from "react-moralis";
 import Router from 'next/router';
 
 export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, ticker, mintNFT }) => {
-    const [image, setImage] = useState(imageUrl ? imageUrl : '/img/sync-metadata.jpg');
+    const [image, setImage] = useState(imageUrl);
     const [nftName, setNftName] = useState(name);
     const [nftDescription, setNftDescription] = useState(description);
     const [id, setId] = useState(tokenId);

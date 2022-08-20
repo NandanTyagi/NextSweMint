@@ -17,7 +17,7 @@ export async function formatNfts(owners, nfts) {
         }
     });
 });
-console.log('========================',newArr)
+// console.log('========================',newArr)
 
 // Add created owner object to nfts
 nftArr.forEach((nft) => {
@@ -44,7 +44,7 @@ nftArr.forEach((nft) => {
     formatedNfts.sort((a, b) => {
       return a.token_id - b.token_id;
     });
-    // console.log("============ooooo======?????oooooooo", formatedNfts);
+    console.log("============ooooo======?????oooooooo", formatedNfts);
     
     return formatedNfts;
   }else {
