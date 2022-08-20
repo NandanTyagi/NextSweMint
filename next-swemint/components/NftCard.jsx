@@ -109,6 +109,7 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
         }
     }, [isVisible, ticker])
 
+
     return (
         <>
             {isMint ?
