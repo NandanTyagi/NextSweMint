@@ -57,7 +57,7 @@ export const getStaticProps = async () => {
 
 export function Home({theNFTS}) {
   useEffect(() => {
-    console.log("IN MINT NFTS", theNFTS);
+    console.log("IN MINT NFTS fg", theNFTS);
     // console.log("IN MINT OWNERS", theOwners);
   }, []);
   return (
@@ -68,4 +68,4 @@ export function Home({theNFTS}) {
   );
 }
 
-export default Home;
+export default Home ;
