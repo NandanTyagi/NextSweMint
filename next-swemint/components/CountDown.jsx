@@ -19,7 +19,7 @@ export const CountDown = () => {
 
     useEffect(() => {
         setInterval(() => {
-            const deadLine = countDownTo('2022', 'August', '20', '18:00:00')
+            const deadLine = countDownTo('2022', 'September', '20', '18:00:00')
             setDays(deadLine.d)
             setHrs(deadLine.h)
             setMin(deadLine.m)
