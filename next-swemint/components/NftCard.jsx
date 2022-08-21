@@ -6,7 +6,7 @@ import Web3 from 'web3';
 import { EvmChain } from '@moralisweb3/evm-utils';
 import styles from '../styles/NftCard.module.css';
 import contractABI from '../utils/contracts/contract';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { useMoralisWeb3Api, isInitialized, useMoralis } from "react-moralis";
 import Router from 'next/router';
 
@@ -80,11 +80,11 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
     useEffect(() => {
         isAuthenticated ? currentUserAccountRef.current = user.get('ethAddress') : null
         handelWeb3()
-    }, [isAuthenticated])
+    }, [])
 
 
     useEffect(() => {
-        // console.log('mint ref', mintRef.current)
+        console.log('mint ref', mintRef.current)
         // console.log('mint USER', user)
         // console.log('mint ACCOUNT', user.get('ethAddress'))
         // console.log('mint REF ACCOUNT', currentUserAccountRef.current)
@@ -113,19 +113,6 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
     return (
         <>
             {isMint ?
-                <motion.div initial="hidden" animate="visible" variants={{
-                    hidden: {
-                        scale: 0,
-                        opacity: 0
-                    },
-                    visible: {
-                        scale: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-                        opacity: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-                        transition: {
-                            delay: .5
-                        }
-                    }
-                }}>
                     <div ref={mintRef} key={nft.tokenId} className={`${styles.card} ${isVisible ? styles.animateCard : ''} `}>
                         <div className={styles["card-image"]}>
                             <div className={styles["card-image__overlay"]}></div>
@@ -154,8 +141,8 @@ export const NftCard = ({ imageUrl, name, description, tokenId, nft, isMint, tic
                         </div>
                     </div>
 
-                </motion.div>
                 :
+
                 <div ref={mintRef} key={nft.token_id} className={`${styles.card} ${isVisible ? styles.animateCard : ''} `}>
                     <div className={styles["card-image"]}>
                         <div className={styles["card-image__overlay"]}></div>

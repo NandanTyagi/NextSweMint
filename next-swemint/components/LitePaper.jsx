@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import styles from '../styles/LitePaper.module.css';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const LitePaper = () => {
     const paperRef = useRef();
