@@ -27,7 +27,7 @@ export async function getStaticProps() {
     requestOptions
   );
   const data1 = await res1.json();
-  const formatedNFTs = await formatNfts(data, data1);
+  const formatedNFTs = await formatNfts(data, data1) ;
 
   return {
     props: { theNFTS: formatedNFTs || null }
