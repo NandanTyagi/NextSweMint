@@ -6,7 +6,7 @@ import loadNfts from "../utils/loadNfts";
 export const getStaticProps = async () => {
   const theNFTS = await loadNfts();
   return {
-    props: { theNFTS }
+    props: { theNFTS: theNFTS || null }
   };
 };
 
