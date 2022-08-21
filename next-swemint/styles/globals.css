@@ -64,9 +64,9 @@ a:hover {
 }
 
 .btn {
-  color:black;
-  background-color:white;
-  border-color: black;
+  color:black !important;
+  background-color:white !important;
+  border-color: black !important;
   font-weight: 600;
   font-size: 1rem;
   transition: color border 1s ease;
@@ -74,17 +74,17 @@ a:hover {
 }
 
 .btn:hover {
-  color:white;
-  background-color:black;
-  border-color: white;
+  color:white !important;
+  background-color:black !important;
+  border-color: white !important;
   font-weight: 600;
   font-size: 1rem;
   transition: color border 1s ease;
 }
 
 .btn:focus {
-  background: black;
-  outline-color: white;
+  background: black !important;
+  outline-color: white !important;
 }
 
 * {
