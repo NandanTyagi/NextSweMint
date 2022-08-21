@@ -14,9 +14,9 @@ const Dashboard = ({ NFTS }) => {
   const { isInitialized, isInitializing, isAuthenticated } = useMoralis();
 
   useEffect(() => {
-    console.log('In dashbord', NFTS)
     setNfts(NFTS)
-  }, [isAuthenticated])
+    console.log('In dashbord', NFTS)
+  }, [isInitialized])
   
   if(NFTS !== null) {
     return (
