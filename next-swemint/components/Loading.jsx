@@ -16,7 +16,8 @@ export const Loading = () => {
                 src="./img/spinner.gif"
                 alt="loading..."
                 id="loading"
-                className={styles["loading"]}
+                className={styles["loading"]
+            }
             />}
         </>
     );

@@ -21,51 +21,29 @@ export const getStaticProps = async () => {
     `https://deep-index.moralis.io/api/v2/nft/${address}?chain=${chain}&format=decimal`,
     requestOptions
   );
-
   const data = await res.json();
-
   const res1 = await fetch(
     `https://deep-index.moralis.io/api/v2/nft/${address}/owners?chain=${chain}&format=decimal`,
     requestOptions
   );
   const data1 = await res1.json();
-
-  // let metadataArr = []
-  // for(let i = 0; i < 33; i ++) {
-  //   const res2 = await fetch( `https://deep-index.moralis.io/api/v2/nft/${address}/${i}?chain=rinkeby&format=decimal`
-  //     ,
-  //     requestOptions
-  //   );
-  //   const data2 = await res2.json();
-  //   metadataArr[i] = data2
-  // }
-
-  // console.log('metadataArr', metadataArr)
-
   const formatedNFTs = await formatNfts(data, data1);
 
-
-    
-
-
-
-
   return {
-    props: { theNFTS: formatedNFTs }
+    props: { theNFTS: formatedNFTs },
   };
 };
 
-export function Home({theNFTS}) {
+export function Home({ theNFTS }) {
   useEffect(() => {
-    console.log("IN MINT NFTS fg", theNFTS);
-    // console.log("IN MINT OWNERS", theOwners);
+    console.log("IN MINT NFTS", theNFTS);
   }, []);
   return (
     <>
-      <NextHead title={"MINT NFT"}/>
+      <NextHead title={"MINT NFT"} />
       <Layout theNFTS={theNFTS} />
     </>
   );
 }
 
-export default Home ;
+export default Home;

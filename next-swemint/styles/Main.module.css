@@ -5,7 +5,6 @@
   justify-content:center;
   margin: auto 0;
   width: calc(100vw - 3rem);
-  /* max-width: 1368px; */
   max-width: 1360px;
   overflow-x: hidden;
   gap: 2rem;

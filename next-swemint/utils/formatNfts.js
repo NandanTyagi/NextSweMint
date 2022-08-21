@@ -44,7 +44,7 @@ nftArr.forEach((nft) => {
     formatedNfts.sort((a, b) => {
       return a.token_id - b.token_id;
     });
-    console.log("============ooooo======?????oooooooo", formatedNfts);
+    // console.log("============ooooo======?????oooooooo", formatedNfts);
     
     return formatedNfts;
   }else {

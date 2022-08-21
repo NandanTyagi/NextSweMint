@@ -11,7 +11,7 @@ const LitePaper = () => {
         <>
             <div className={styles.litePaper}>
                 <div ref={paperRef} className={styles.paperContainer}alt="LitePaper1" priority="true">
-                    <Image  src="/img/litepaper-page-1.jpg" width={1593}
+                    <Image alt=''  src="/img/litepaper-page-1.jpg" width={1593}
                         height={875}
                         layout="responsive" blurDataURL="/img/litepaper-page-1.jpg" className={styles.paper} />
                 </div>

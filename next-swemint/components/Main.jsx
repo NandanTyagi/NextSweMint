@@ -16,9 +16,7 @@ export const Main = ({formattedNFTArray}) => {
     const [isMint, setIsMint] = useState();
     const [isLitePaper, setIsLitePaper] = useState();
     const [preamble, setPreamble] = useState(getPreamble(router.pathname));
-    const [NFTs, setNFTs] = useState([{image:'/img/ipas/ipa1.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'1'},{image:'/img/ipas/ipa2.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'2'}, {image:'/img/ipas/ipa3.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'3'}, {image:'/img/ipas/ipa4.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'4'}, {image:'/img/ipas/ipa5.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'5'}, {image:'/img/ipas/ipa6.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'6'}, {image:'/img/ipas/ipa7.jpg', name: 'NFT Name', description:'Some description of NFT',tokenId:'7'}, {image:'/img/ipas/ipa8.jpg', name: 'NFT Name', description:'Some description of the NFT',tokenId:'8'}]);
     
-
     useEffect(() => {
         if (router.pathname === '/litepaper') {
             setIsHome(false)
@@ -26,7 +24,6 @@ export const Main = ({formattedNFTArray}) => {
             setIsMint(false)
             setIsLitePaper(true)
             setPreamble(prev => getPreamble(router.pathname))
-            // setFormatedNfts(formattedNFTArray)  
         }
         
         if (router.pathname === '/mint') {
@@ -35,7 +32,6 @@ export const Main = ({formattedNFTArray}) => {
             setIsMint(true)
             setIsLitePaper(false)
             setPreamble(prev => getPreamble(router.pathname))
-            // setFormatedNfts(formattedNFTArray)  
         }
         if (router.pathname === '/dashboard') {
             setIsHome(false)
@@ -43,7 +39,6 @@ export const Main = ({formattedNFTArray}) => {
             setIsMint(false)
             setIsLitePaper(false)
             setPreamble(prev => getPreamble(router.pathname))
-            // setFormatedNfts(formattedNFTArray)
             
         }
         if (router.pathname === '/') {
@@ -64,12 +59,8 @@ export const Main = ({formattedNFTArray}) => {
             <Header preamble={preamble} />
             {isHome && <Home />}
             {isDashBoard && <Dashboard NFTS={formatedNfts}/>}
-            {/* {isDashBoard && <Dashboard NFTS={NFTs}/>} */}
             {isMint && <Mint NFTS={formatedNfts} />}
-            {/* {isMint && <Mint NFTS={NFTs} />} */}
-            {/* {isDashBoard && <Dashboard NFTS={NFTs}/>} */}
             {isLitePaper && <LitePaper NFTS={NFTs} />}
-            {/* {isDashBoard && <Dashboard NFTS={NFTs}/>} */}
         </main>
     );
 }

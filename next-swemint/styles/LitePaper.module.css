@@ -22,11 +22,10 @@
 
 .animatePaper {
   animation-duration: 8s;
-  animation-name: appea;
-  /* animation-fill-mode:forwards; */
+  animation-name: appear;
 }
 
-@keyframes appea{
+@keyframes appear{
   0% {
     opacity:0;
     transform: translateY(-16px);
