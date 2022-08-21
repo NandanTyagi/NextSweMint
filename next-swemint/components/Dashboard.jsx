@@ -28,8 +28,6 @@ const Dashboard = ({ NFTS }) => {
         })}
       </div>
       );
-  }else {
-    return <div>Loading please refresh</div>
   }
 }
 
