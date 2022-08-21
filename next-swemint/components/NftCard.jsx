@@ -94,7 +94,7 @@ export const NftCard = ({ imageUrl, name, tokenId, nft, isMint, ticker }) => {
                 <div ref={mintRef} key={nft.token_id} className={`${styles.card} ${isVisible ? styles.animateCard : ''} `}>
                     <div className={styles["card-image"]}>
                         <div className={styles["card-image__overlay"]}></div>
-                        <h5 className={styles["card-title"]}>{nftName}</h5>
+                        <h5 className={styles["card-title"]}>{nft.metadata ? nft.metadata.name : 'error'}</h5>
                         <p className={styles["card-text"]}>Rarity: {nft.metadata ? nft.metadata.attributes.rarity : 'error'}</p>
                         <Image src={nft.metadata ? nft.metadata.image : '/img/sync-metadata.jpg'} width={1024}
                             height={1024}
