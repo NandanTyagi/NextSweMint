@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/NoNftMsg'
+import styles from '../styles/NoNftMsg.module.css'
 const NoNftMsg = () => {
     return (
         <>
