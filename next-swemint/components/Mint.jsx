@@ -147,9 +147,6 @@ const Mint = ({ NFTS }) => {
                 {router.pathname = '/mint' ? <Image alt='Image of IPA' src={image} width={1024}
                     height={1024}
                     layout="responsive" blurDataURL={image} className={styles["card-img-top"]} priority="true" /> : null}
-                {NFTS.map((nft, i) => {
-                    if (router.query.nftId === nft.token_id) return <NftCard key={i} nft={nft} imageUrl={nft.metadata.image ? nft.metadata.image : 'https://zjaux8t7jfje.usemoralis.com/ipa3.jpg'} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id} isMint={true} />
-                })}
             </div>
             <ConnectBtn isMintBtn={true} mintNFT={mintNFT} />
             <CountDown />

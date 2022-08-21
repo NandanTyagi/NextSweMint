@@ -58,9 +58,9 @@ export const Main = ({formattedNFTArray}) => {
         <main className={styles["main-container"]}>
             <Header preamble={preamble} />
             {isHome && <Home />}
-            {isDashBoard && <Dashboard NFTS={formatedNfts}/>}
-            {isMint && <Mint NFTS={formatedNfts} />}
-            {isLitePaper && <LitePaper NFTS={NFTs} />}
+            {isDashBoard && <Dashboard NFTS={formattedNFTArray}/>}
+            {isMint && <Mint NFTS={formattedNFTArray} />}
+            {isLitePaper && <LitePaper NFTS={formattedNFTArray} />}
         </main>
     );
 }
