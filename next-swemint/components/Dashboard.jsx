@@ -18,15 +18,19 @@ const Dashboard = ({ NFTS }) => {
     console.log('In dashbord', NFTS)
   }, [isInitialized])
   
-  return (
-    <div className={styles.dashboard}>
-      {!isAuthenticated?<NoNftMsg/>
-      :NFTS.map((nft,i) => {
-      return nft.metadata?<NftCard key={i} nft={nft} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id}/>:
-      <NftCard key={i} nft={nft} imageUrl={'https://zjaux8t7jfje.usemoralis.com/ipa3.jpg'} name={'Error'} description={'error'} tokenId={nft.token_id}/>
-      })}
-    </div>
-    );
+  if(NFTS !== null) {
+    return (
+      <div className={styles.dashboard}>
+        {!isAuthenticated?<NoNftMsg/>
+        :NFTS.map((nft,i) => {
+        return nft.metadata?<NftCard key={i} nft={nft} imageUrl={nft.metadata.image} name={nft.metadata.name} description={nft.metadata.description} tokenId={nft.token_id}/>:
+        <NftCard key={i} nft={nft} imageUrl={'https://zjaux8t7jfje.usemoralis.com/ipa3.jpg'} name={'Error'} description={'error'} tokenId={nft.token_id}/>
+        })}
+      </div>
+      );
+  }else {
+    return <div>Loading please referesh</div>
+  }
 }
 
 export default Dashboard;
