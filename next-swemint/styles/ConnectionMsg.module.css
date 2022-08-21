@@ -4,6 +4,7 @@
     position: absolute;
     top: 8px;
     right: 24px;
+    color: white;
 }
 
 @media screen and (min-width: 682px) {
