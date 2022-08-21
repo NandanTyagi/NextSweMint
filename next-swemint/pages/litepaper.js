@@ -32,15 +32,9 @@ export async function getStaticProps() {
 
   const formatedNFTs = await formatNfts(data, data1);
 
-  if(formatNfts === undefined){
     return {
-      props: { theNFTS: null }
-    }
-  }else {
-    return {
-      props: { theNFTS: formatedNFTs }
+      props: { theNFTS: formatedNFTs || null }
     };
-  }
 };
 
 export function Home({ theNFTS = null }) {
