@@ -5,6 +5,7 @@ import styles from '../styles/NftCard.module.css';
 import contractABI from '../utils/contracts/contract';
 import { useMoralis } from "react-moralis";
 import Router from 'next/router';
+import Loading from './Loading';
 
 export const NftCard = ({ imageUrl, name, tokenId, nft, isMint, ticker }) => {
     const [image, setImage] = useState(imageUrl);
@@ -68,6 +69,10 @@ export const NftCard = ({ imageUrl, name, tokenId, nft, isMint, ticker }) => {
         }
     }, [isVisible, ticker])
 
+    if (!nft) {
+        return <Loading />
+    }
+
     return (
         <>
             {isMint ?
@@ -108,7 +113,7 @@ export const NftCard = ({ imageUrl, name, tokenId, nft, isMint, ticker }) => {
                         {nft.owners.map(o => {
                             if (currentUserAccountRef.current !== undefined && o.owner.toUpperCase() === currentUserAccountRef.current.toUpperCase()) {
                                 return (
-                                    <p className={styles["card-text"]}>You own: {o.amountOwned}</p>
+                                    <p key={nft.token_id} className={styles["card-text"]}>You own: {o.amountOwned}</p>
                                 )
                             }
                         })}
