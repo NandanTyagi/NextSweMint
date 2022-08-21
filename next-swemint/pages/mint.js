@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
   }
 };
 
-export function Home({ theNFTS }) {
+export function Home({ theNFTS = null }) {
   useEffect(() => {
     console.log("IN MINT NFTS", theNFTS);
   }, []);

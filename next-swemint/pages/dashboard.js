@@ -43,14 +43,14 @@ export const getStaticProps = async () => {
   }
 };
 
-export function Home({ theNFTS }) {
+export function Home({ theNFTS = null }) {
   useEffect(() => {
-    console.log("In dasshboard page NFTS", theNFTS);
+    console.log("In dashboard page NFTS", theNFTS);
   }, []);
   return (
     <>
       <NextHead title={"IPANEKO | DASHBOARD"} />
-      <Layout theNFTS={theNFTS} />
+      <Layout theNFTS={ theNFTS } />
     </>
   );
 }
